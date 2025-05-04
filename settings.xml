@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    
+    <!-- Local repository location -->
+    <localRepository>${user.home}/.m2/repository</localRepository>
+
+    <!-- Mirror configuration for faster dependency resolution -->
+    <mirrors>
+        <mirror>
+            <id>maven-default-http-blocker</id>
+            <mirrorOf>external:http:*</mirrorOf>
+            <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
+            <url>http://0.0.0.0/</url>
+            <blocked>true</blocked>
+        </mirror>
+    </mirrors>
+
+    <!-- Profile for optimized builds -->
+    <profiles>
+        <profile>
+            <id>optimized</id>
+            <properties>
+                <maven.test.skip>false</maven.test.skip>
+                <maven.javadoc.skip>true</maven.javadoc.skip>
+                <maven.source.skip>true</maven.source.skip>
+            </properties>
+        </profile>
+    </profiles>
+
+    <!-- Active profiles -->
+    <activeProfiles>
+        <activeProfile>optimized</activeProfile>
+    </activeProfiles>
+</settings> 

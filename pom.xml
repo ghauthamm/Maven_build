@@ -15,6 +15,11 @@
     </properties>
 
     <!-- Optimize dependency resolution -->
+    <dependency>
+    <groupId>com.example</groupId>
+    <artifactId>missing-lib</artifactId>
+    <version>1.0</version>
+</dependency>
     <repositories>
         <repository>
             <id>central</id>
